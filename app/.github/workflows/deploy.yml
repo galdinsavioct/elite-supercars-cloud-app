@@ -1,0 +1,25 @@
+  name: Elite Supercars CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Display Project Files
+        run: ls -R
+
+      - name: PHP Syntax Check
+        run: find . -name "*.php" -exec php -l {} \;
+
+      - name: Deployment Success Message
+        run: echo "Elite Supercars Cloud App CI/CD Pipeline Executed Successfully"
